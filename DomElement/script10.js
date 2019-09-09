@@ -12,10 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
         let newElem = '';
         if (firstChar === '.') {
             newElem = document.createElement('div');
+            newElem.classList.add(this.selector.substring(1));
         } else {
             newElem = document.createElement('p');
         }
-        newElem.style.cssText= "height: " + this.height + ";" + "width: " + this.width + ";" + "background-color: " + this.bg + ";" + "font-size: " + this.fontSize + ";";
+        
+        newElem.style.cssText = "height: " + this.height + ";" + "width: " + this.width + ";" + "background-color: " + this.bg + ";" + "font-size: " + this.fontSize + ";";
         newElem.textContent = 'Привет, я новый элемент!';
         let script = document.querySelector('script[src="script10.js"]');
         document.querySelector('body').insertBefore(newElem, script);
