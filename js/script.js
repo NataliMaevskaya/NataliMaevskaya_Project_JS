@@ -65,12 +65,8 @@ AppData.prototype.start = function() {
     this.getExpenses();
     this.getIncome();
     this.getExpensesMonth();
-    // this.getAddExpenses();
-    // this.getAddIncome();
     this.getAdd.call(this, additionalExpensesItem.value.split(','), this.addExpenses);
     this.getAdd.call(this, additionalIncomeItem, this.addIncome);
-    // this.getAdd.bind(this, additionalExpensesItem.value.split(','), this.addExpenses);
-    // this.getAdd.bind(this, additionalIncomeItem, this.addIncome);
     this.getInfoDeposit();
     this.getBudget();   
 
@@ -364,9 +360,7 @@ AppData.prototype.eventListeners = function() {
     salaryAmount.addEventListener('keyup', this.readyToStart);
     start.addEventListener('click', this.start.bind(this));
 
-    // expensesPlus.addEventListener('click', this.addExpensesBlock.bind(this));
     expensesPlus.addEventListener('click', this.addBlock.bind(this, expensesItems, expensesPlus, '.expenses-items'));
-    // incomePlus.addEventListener('click', this.addIncomeBlock.bind(this));
     incomePlus.addEventListener('click', this.addBlock.bind(this, incomeItems, incomePlus, '.income-items'));
     periodSelect.addEventListener('input', this.changePeriod);
     cancel.addEventListener('click', this.reset.bind(this));
@@ -383,40 +377,4 @@ AppData.prototype.eventListeners = function() {
 
 
 const appData = new AppData();
-appData.eventListeners();
-
-// Обязательные расходы
-// console.log('Расходы за месяц: ', appData.expensesMonth);
-
-// Накопления за месяц, бюджет на день
-
-// console.log('Накопления за месяц: ', appData.budgetMonth);
-
-// Срок достижения цели
-// let numMonthMission = appData.getTargetMonth();
-// if ( !isFinite(numMonthMission) || numMonthMission < 0 || isNaN(numMonthMission)) { 
-//     console.log('Цель не будет достигнута!');
-// } else {
-//     console.log('Накопить ' + appData.mission + ' возможно через ' + numMonthMission + ' месяцев.');
-// }
-
-// // Уровень дохода
-// appData.getStatusIncome();
-// // Инфо о депозите
-// appData.getInfoDeposit();
-// // Накопления за период
-// console.log('Накопления за ' + appData.period + ' месяцев: ' + appData.calcSavedMoney());
-
-// console.log('Наша программа включает в себя данные: ');
-// for (let key in appData) {
-//     console.log(key + ': ' + appData[key]);
-// }
-
-// for (let i = 0; i < appData.addExpenses.length; i++) {
-//     appData.addExpenses[i] = appData.addExpenses[i].charAt(0).toUpperCase() + appData.addExpenses[i].slice(1);
-// }
-// console.log('Дополнительные расходы: ' + appData.addExpenses.join(', '));
-
-
-
-    
+appData.eventListeners();    
